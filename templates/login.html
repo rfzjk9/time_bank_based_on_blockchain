@@ -10,7 +10,7 @@
 <h1>时间银行</h1>
 <form action="/login" method="post" class="container">
     <label for="username"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="username" required pattern="[A-Za-z0-9]+" maxlength="12">
+    <input type="text" placeholder="Enter Username" name="username" required maxlength="12">
 
     <label for="password"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="password" required maxlength="20"
@@ -25,3 +25,27 @@
 <p class="jump">没有账号？<a href="{{ url_for('register') }}" style="color: #4CAF60">注册</a></p>
 </body>
 </html>
+
+<script>
+    const username = document.querySelector('input[name="username"]');
+    const password = document.querySelector('input[name="password"]');
+
+    function validateUsername() {
+        if (!/^[A-Za-z0-9@_-]{6,12}$/.test(username.value)) {
+            username.setCustomValidity("用户名只能包含字母、数字、下划线、中划线和@，长度为6-12位");
+        } else {
+            username.setCustomValidity('');
+        }
+    }
+
+    function validatePassword() {
+        if (!/^[A-Za-z0-9@_,.-]{6,20}$/.test(password.value)) {
+            password.setCustomValidity("密码只能包含字母、数字、下划线、中划线、@和.，长度为6-20位");
+        }
+        else {
+            confirm_password.setCustomValidity('');
+        }
+    }
+    username.onchange = validateUsername;
+    password.onchange = validatePassword;
+</script>
