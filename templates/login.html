@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户登录</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+<h1>时间银行</h1>
+<form action="/login" method="post" class="container">
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="username" required pattern="[A-Za-z0-9]+" maxlength="12">
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required maxlength="20"
+           style="margin-bottom: 13px">
+    <!--jinja2的函数-->
+    {% if message %}
+        <div style="color: crimson; font-size: 16px"><b>{{ message }}</b></div>
+    {% endif %}
+    <button type="submit" class="btn">登录</button>
+    <button type="reset" class="btn" style="background-color: #f1f1f1; color: black">重置</button>
+</form>
+<p class="jump">没有账号？<a href="{{ url_for('register') }}" style="color: #4CAF60">注册</a></p>
+</body>
+</html>

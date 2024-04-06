@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <title>用户注册</title>
+</head>
+<body>
+<h1>用户注册</h1>
+<form action="/register" method="post" class="container" style="margin-top: 75px">
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="username" required pattern="[A-Za-z0-9]+" maxlength="20">
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required maxlength="20" id="password">
+
+    <label for="password2"><b>Confirm Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password2" required maxlength="20" id="password2"
+           style="margin-bottom: 13px">
+    <!--jinja2的函数-->
+    {% if message %}
+        <div style="color: crimson; font-size: 16px"><b>{{ message }}</b></div>
+    {% endif %}
+    <button type="submit" class="btn">注册</button>
+    <button type="reset" class="btn" style="background-color: #f1f1f1; color: black">重置</button>
+</form>
+<p class="jump">已经拥有账号？<a href="{{ url_for('login') }}" style="color: #4CAF60">登录</a></p>
+
+<script>
+    const password = document.querySelector('#password');
+    const confirm_password = document.querySelector('#password2');
+
+    function validatePassword() {
+        if (password.value !== confirm_password.value) {
+            confirm_password.setCustomValidity("Passwords Don't Match");
+        } else {
+            confirm_password.setCustomValidity('');
+        }
+    }
+
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+</script>
+
+</body>
+</html>
