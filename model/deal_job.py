@@ -1,6 +1,6 @@
-from templates.config import conn
-from model.tot import get_balance, private_transfer, admin_address, admin_key, check_tot
-from model import get_info
+from model.config import conn
+from model.tot import private_transfer, admin_address, admin_key
+from model.get_info import check_tot, select
 
 
 cur = conn.cursor()
@@ -20,7 +20,7 @@ def post_job(title, info, username, value):
         cur.execute(sql)
         conn.commit()
         conn.close()
-        info = get_info.select(username)
+        info = select(username)
         if private_transfer(
             info["address"],
             admin_address,

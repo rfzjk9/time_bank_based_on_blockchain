@@ -1,4 +1,4 @@
-from templates.config import conn
+from model.config import conn
 
 cur = conn.cursor()
 

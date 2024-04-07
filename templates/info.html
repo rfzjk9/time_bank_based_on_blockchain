@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <title>用户信息</title>
+</head>
+<body>
+<h1>用户信息</h1>
+<div>
+    <div class="container" id="info" style="margin-top: 75px">
+        <label for="username"><b>Username</b></label>
+        <p id="username">{{ username }}</p>
+
+        <label for="public_key"><b>Public Key Address</b></label>
+        <p id="address">{{ address }}</p>
+
+        <label for="balance"><b>Balance</b></label>
+        <p id="balance">{{ balance }}</p>
+    </div>
+</div>
+<p class="jump"><a href="{{ url_for('logout') }}" style="color: #4CAF60">登出</a></p>
+</body>
+</html>

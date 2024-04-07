@@ -1,5 +1,4 @@
 from web3 import Web3
-from model.get_info import select
 import json
 
 admin_address = "0x1862EB3030659e2c3c029197835c3d8710b4D10a"
@@ -15,7 +14,7 @@ provider_url = "HTTP://127.0.0.1:8545"
 w3 = Web3(Web3.HTTPProvider(provider_url))
 
 # 配置合约地址
-cont = w3.eth.contract(address=contract_address, abi=abi)
+cont = w3.eth.contract(address = contract_address, abi=abi)
 
 
 def np_transfer(_to_addr, _value):
@@ -66,9 +65,3 @@ def private_transfer(_from_addr, _to_addr, _value, _key):
         return True
 
 
-def check_tot(username, value):
-    balance = get_balance(select(username)["address"])
-    if value > balance:
-        return False
-    else:
-        return True

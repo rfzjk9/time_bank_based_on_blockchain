@@ -20,10 +20,11 @@ def index():
         username = session["username"]
         info = select(username)
         return render_template(
-            "index.html",
+            "info.html",
             username=username,
             address=info["address"],
             private_key=info["key"],
+            balance=info["balance"]
         )
     else:
         return redirect(url_for("login"))
@@ -50,9 +51,6 @@ def login():
             return render_template("login.html", message=login_message)
     if session.get("logged_in"):
         return redirect(url_for("index"))
-    # elif request.args.get("register") == "repeats":
-    #     login_message = "温馨提示：用户已存在，请直接登录"
-    #     return render_template("login.html", message=login_message)
     else:
         return render_template("login.html")
 

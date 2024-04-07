@@ -43,9 +43,10 @@
             password.setCustomValidity("密码只能包含字母、数字、下划线、中划线、@和.，长度为6-20位");
         }
         else {
-            confirm_password.setCustomValidity('');
+            password.setCustomValidity('');
         }
     }
     username.onchange = validateUsername;
     password.onchange = validatePassword;
+    password.onkeyup = validatePassword;
 </script>

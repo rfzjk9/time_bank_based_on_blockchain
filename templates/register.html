@@ -44,8 +44,10 @@
             password.setCustomValidity("密码只能包含字母、数字、下划线、中划线、@和.，长度为6-20位");
         }
         else if (password.value !== confirm_password.value) {
+            password.setCustomValidity('');
             confirm_password.setCustomValidity("两次输入的密码不一样");
         } else {
+            password.setCustomValidity('');
             confirm_password.setCustomValidity('');
         }
     }
