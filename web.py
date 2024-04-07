@@ -4,9 +4,9 @@ from flask import url_for
 from flask import request
 from model.check_login import is_existed, exist_user, is_null
 from model.check_regist import add_user
-from model.tot import create_account
 from model.get_info import select
 import datetime
+from model.encode import sha256d
 
 # Flask基础设置
 app = Flask(__name__)
@@ -34,7 +34,7 @@ def index():
 def login():
     if request.method == "POST":  # 注册发送的请求为POST请求
         username = request.form["username"]
-        password = request.form["password"]
+        password = sha256d(request.form["password"])
         if is_null(username, password):
             login_message = "温馨提示：账号和密码是必填"
             return render_template("login.html", message=login_message)
@@ -59,8 +59,8 @@ def login():
 def register():
     if request.method == "POST":
         username = request.form["username"]
-        password = request.form["password"]
-        password2 = request.form["password2"]
+        password = sha256d(request.form["password"])
+        password2 = sha256d(request.form["password2"])
         if is_null(username, password):
             login_message = "温馨提示：账号和密码是必填"
             return render_template("register.html", message=login_message)
@@ -72,7 +72,7 @@ def register():
             # return redirect(url_for("login", register="repeats"))
             return render_template("register.html", message=login_message)
         else:
-            add_user(request.form["username"], request.form["password"])
+            add_user(username, password)
             return redirect(url_for("index"))
     if session.get("logged_in"):
         return redirect(url_for("index"))
