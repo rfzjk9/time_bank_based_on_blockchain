@@ -10,6 +10,22 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f2f2f2;
 }
+
+span {
+    /* 转换为块元素 */
+    height: auto;
+    display: block;
+    width: 50px;
+}
+
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+}
+
 /* 对于宽度大于600px的设备，设置.container的宽度为80% */
 @media (min-width: 600px) {
     .container[id="info"] {
@@ -23,6 +39,18 @@ body {
         width: 90%;
     }
 }
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin: auto;
+}
+
+.row span {
+    width: 45%;
+}
+
 .container {
     padding: 16px;
     background-color: white;
@@ -32,7 +60,9 @@ body {
     width: 90%;
     max-width: 300px;
 }
+
 .container[id="info"] {
+    margin-top: 20px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -40,50 +70,70 @@ body {
     padding: 20px;
     max-width: none;
 }
+
 input:invalid:not(:placeholder-shown) {
-  background-color: #E6DDD0;
-  border: none;
-  outline: 2px solid red;
-  border-radius: 5px;
+    background-color: #E6DDD0;
+    border: none;
+    outline: 2px solid red;
+    border-radius: 5px;
 }
-input[type=text], input[type=password] {
-    width: 90%;
+
+input {
+    box-sizing: border-box;
+    width: 100%;
     padding: 15px;
-    margin: 5px 5px 22px 0;
+    margin: 5px auto 22px;
     display: inline-block;
     border: none;
     background: #f1f1f1;
-        }
+}
+
 input[type=text]:focus, input[type=password]:focus {
     background-color: #ddd;
     outline: none;
 }
+
 .btn {
     background-color: #4CAF50;
     color: white;
     padding: 16px 20px;
-    margin: 8px 0;
+    margin: 8px auto 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 95%;
     opacity: 0.9;
     font-family: 微软雅黑, serif;
     font-size: 14px;
 }
+
 .btn:hover {
     opacity: 1;
 }
+
 h1 {
     text-align: center;
     padding-top: 50px;
 }
+
 .jump {
     text-align: center;
     color: #4CAF50;
 }
+
 p[id="address"] {
     text-align: left;
     color: #4CAF50;
-    word-break:break-all;
+    word-break: break-all;
     width: 100%;
+}
+
+textarea {
+    vertical-align: top;
+    width: 100%;
+    margin: 5px auto 22px;
+    font-size: 16px;
+    resize: none;
+}
+div {
+    box-sizing: border-box;
 }

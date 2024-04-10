@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>增加</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+
+<body>
+    <h1 style="padding-top: 0">增加</h1>
+    <form action="/add_job" method="post" class="container" id="info">
+        <div class="center-content">
+            <div style="width: 95%" class="center-content">
+                <b style="width: 100%;">标题：</b><br>
+                <textarea placeholder="输入标题..." name="title" id="title" rows="1" style="height: 24px;" required></textarea>
+
+                <b style="width: 100%">工作内容：</b><br>
+                <textarea placeholder="输入工作内容..." id="job" name="job" required style="height: 300px"></textarea>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <span style="float: left"><label for="date"><b>日期：</b></label><br>
+            <input type="date" id="date" name="date" value="2024-04-10"></span>
+
+            <span style="float: right"><label for="time"><b>工时（小时）：</b></label><br>
+            <input type="number" id="time" name="time" value="1" required></span>
+        </div>
+
+        <div class="center-content">
+            <button type="submit" class="btn">提交</button>
+            <input type="button" class="btn" style="background-color: #f1f1f1; color: black" name="Submit"
+                   onclick="history.back(-1);" value="返回">
+        </div>
+
+    </form>
+</body>
+
+</html>

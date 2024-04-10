@@ -19,8 +19,10 @@
     {% if message %}
         <div style="color: crimson; font-size: 16px"><b>{{ message }}</b></div>
     {% endif %}
-    <button type="submit" class="btn">登录</button>
-    <button type="reset" class="btn" style="background-color: #f1f1f1; color: black">重置</button>
+    <div>
+        <button type="submit" class="btn">登录</button>
+        <button type="reset" class="btn" style="background-color: #f1f1f1; color: black">重置</button>
+    </div>
 </form>
 <p class="jump">没有账号？<a href="{{ url_for('register') }}" style="color: #4CAF60">注册</a></p>
 </body>

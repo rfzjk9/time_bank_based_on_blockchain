@@ -21,8 +21,11 @@
     {% if message %}
         <div style="color: crimson; font-size: 16px"><b>{{ message }}</b></div>
     {% endif %}
-    <button type="submit" class="btn">注册</button>
-    <button type="reset" class="btn" style="background-color: #f1f1f1; color: black">重置</button>
+    <div>
+        <button type="submit" class="btn">注册</button>
+        <button type="reset" class="btn" style="background-color: #f1f1f1; color: black">重置</button>
+    </div>
+
 </form>
 <p class="jump">已经拥有账号？<a href="{{ url_for('login') }}" style="color: #4CAF60">登录</a></p>
 

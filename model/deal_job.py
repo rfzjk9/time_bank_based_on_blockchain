@@ -7,6 +7,7 @@ cur = conn.cursor()
 
 
 def post_job(title, info, username, value):
+    print(username, value)
     if not check_tot(username, value):
         return False
     else:

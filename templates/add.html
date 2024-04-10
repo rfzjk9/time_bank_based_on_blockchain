@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>增加</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        form {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .button {
+            display: block;
+            width: 200px;
+            height: 30px;
+            margin: 10px auto;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>增加</h2>
+    <form>
+        <label for="name">用户名：</label><br>
+        <input type="text" id="name" name="name"><br>
+
+        <label for="job">工作内容：</label><br>
+        <input type="text" id="job" name="job"><br>
+
+        <label for="date">日期：</label><br>
+        <input type="date" id="date" name="date"><br>
+
+
+        <label for="time">工时（小时）：</label><br>
+        <input type="number" id="time" name="time"><br>
+
+
+        <label for="state">状态：</label><br>
+        <select id="state">
+            <option value="yes">是</option>
+            <option value="no">否</option><br>
+        </select>
+
+        <button class="button">完成</button>
+    </form>
+
+</body>
+
+</html>

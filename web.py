@@ -7,6 +7,7 @@ from model.check_regist import add_user
 from model.get_info import select
 import datetime
 from model.encode import sha256d
+from model.deal_job import post_job
 
 # Flask基础设置
 app = Flask(__name__)
@@ -78,6 +79,30 @@ def register():
         return redirect(url_for("index"))
     else:
         return render_template("register.html")
+
+
+@app.route("/add_job", methods=["POST"])
+def add_job():
+    if not session.get("logged_in"):
+        return redirect(url_for("login"))
+    else:
+        if request.method == "POST":
+            username = session["username"]
+            title = request.form["title"]
+            job = request.form["job"]
+            date = request.form["date"]
+            value = request.form["time"]
+            post_job(title, job, username, int(value))
+            print(title, job, username, date, value)
+            return redirect(url_for("index"))
+
+
+@app.route("/add", methods=["GET"])
+def add():
+    if not session.get("logged_in"):
+        return redirect(url_for("login"))
+    else:
+        return render_template("add_job.html")
 
 
 @app.route("/logout")

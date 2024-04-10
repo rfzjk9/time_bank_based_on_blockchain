@@ -7,9 +7,9 @@
     <title>用户信息</title>
 </head>
 <body>
-<h1>用户信息</h1>
+<h1 style="padding-top: 0">用户信息</h1>
 <div>
-    <div class="container" id="info" style="margin-top: 75px">
+    <div class="container" id="info">
         <label for="username"><b>Username</b></label>
         <p id="username">{{ username }}</p>
 
@@ -20,6 +20,7 @@
         <p id="balance">{{ balance }}</p>
     </div>
 </div>
+<p class="jump"><a href="{{ url_for('add') }}" style="color: #4CAF60">工作</a></p>
 <p class="jump"><a href="{{ url_for('logout') }}" style="color: #4CAF60">登出</a></p>
 </body>
 </html>
